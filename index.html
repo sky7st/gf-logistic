@@ -7,12 +7,9 @@
 		<title>少女前線 非官方資料站</title>
 		
 		<link rel="stylesheet" href="./assets/Bootstrap-Yeti.css">
-		{% comment %} <script src="./assets/javascript/bootstrap/jquery.min.js"></script>
-		<script src="./assets/javascript/bootstrap/bootstrap.bundle.min.js"></script> {% endcomment %}
-		<link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
-		{%- feed_meta -%}
-		<script src="{{ "/assets/javascript/bootstrap/jquery.min.js" | relative_url }}"></script>
-		<script src="{{ "/assets/javascript/bootstrap/bootstrap.bundle.min.js" | relative_url }}"></script>
+		<script src="./assets/javascript/bootstrap/jquery.min.js"></script>
+		<script src="./assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+
 		<style>
 			.nav-item {
 				cursor: pointer;
@@ -60,6 +57,8 @@
 				</ul>
 			</div>
 		</nav>
-
+		<div style="padding-top: 60px; height: 100vh;">
+			<div id="funcPage" style="height: 100vh;"></div>
+		</div>
 	</body>
 </html>

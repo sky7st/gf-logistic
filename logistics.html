@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./assets/javascript/logistics.js"></script>
+
+    <style>
+        th, td {
+            border: 1px dotted #cccccc;
+            padding: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div id="queryDiv" class="container-fluid" style="margin: 0px auto; border: 1px solid #dddddd; border-radius: 5px; padding: 15px;">
+            <div class="row">
+                <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center" style="border-right: 1px dashed #dddddd;" data-toggle="tooltip" data-placement="right" title="test">
+                    <h6 style="color: #3399ff;">必<span class="d-none d-md-inline">&nbsp;</span>要<span class="d-none d-md-inline">&nbsp;</span>資<span class="d-none d-md-inline">&nbsp;</span>源</h6>
+                </div>
+                <div class="col-12 col-sm-9">
+                    <div class="row">
+                        <div class="col-3 col-sm-2 d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="manpower" checked="">
+                                <label class="custom-control-label" for="manpower">人力</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="bullet" checked="">
+                                <label class="custom-control-label" for="bullet">彈藥</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="rations" checked="">
+                                <label class="custom-control-label" for="rations">口糧</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="components" checked="">
+                                <label class="custom-control-label" for="components">零件</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin: 5px 0px;">
+            <div class="row">
+                <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center" style="border-right: 1px dashed #dddddd;">
+                    <h6 style="color: #3399ff;">必<span class="d-none d-md-inline">&nbsp;</span>要<span class="d-none d-md-inline">&nbsp;</span>獎<span class="d-none d-md-inline">&nbsp;</span>勵</h6>
+                </div>
+                <div class="col-12 col-sm-9">
+                    <div class="row">
+                        <div class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="human" checked="">
+                                <label class="custom-control-label" for="human">人型契約</label>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="equipment" checked="">
+                                <label class="custom-control-label" for="equipment">裝備契約</label>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="manufacture" checked="">
+                                <label class="custom-control-label" for="manufacture">快速建造</label>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="repair" checked="">
+                                <label class="custom-control-label" for="repair">快速修復</label>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-3 col-lg-2 d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="purchase">
+                                <label class="custom-control-label" for="purchase">採購幣</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin: 5px 0px;">
+            <div class="row">
+                <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center" style="border-right: 1px dashed #dddddd;">
+                    <h6 style="color: #3399ff;">資<span class="d-none d-md-inline">&nbsp;</span>源<span class="d-none d-md-inline">&nbsp;</span>權<span class="d-none d-md-inline">&nbsp;</span>重</h6>
+                </div>
+                <div class="col-12 col-sm-9">
+                    <div class="row">
+                        <div class="col-12 col-sm-6">
+                            <div class="input-group mb-1">
+                                <div class="d-flex align-items-center" style="border-radius: 5px 0px 0px 5px; border-top: 1px dotted #cccccc; border-left: 1px dotted #cccccc; border-bottom: 1px dotted #cccccc; padding: 5px 20px;">
+                                    人力
+                                </div>
+                                <div class="input-group-prepend">
+                                    <button id="mwSub" class="btn btn-outline-secondary" type="button">＜</button>
+                                </div>
+                                <input id="manpowerWeight" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" value="1" style="text-align: center;">
+                                <div class="input-group-append">
+                                    <button id="mwAdd" class="btn btn-outline-secondary" type="button">＞</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="input-group mb-1">
+                                <div class="d-flex align-items-center" style="border-radius: 5px 0px 0px 5px; border-top: 1px dotted #cccccc; border-left: 1px dotted #cccccc; border-bottom: 1px dotted #cccccc; padding: 5px 20px;">
+                                    彈藥
+                                </div>
+                                <div class="input-group-prepend">
+                                    <button id="bwSub" class="btn btn-outline-secondary" type="button">＜</button>
+                                </div>
+                                <input id="bulletWeight" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" value="1" style="text-align: center;">
+                                <div class="input-group-append">
+                                    <button id="bwAdd" class="btn btn-outline-secondary" type="button">＞</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="input-group mb-1">
+                                <div class="d-flex align-items-center" style="border-radius: 5px 0px 0px 5px; border-top: 1px dotted #cccccc; border-left: 1px dotted #cccccc; border-bottom: 1px dotted #cccccc; padding: 5px 20px;">
+                                    口糧
+                                </div>
+                                <div class="input-group-prepend">
+                                    <button id="rwSub" class="btn btn-outline-secondary" type="button">＜</button>
+                                </div>
+                                <input id="rationsWeight" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" value="1" style="text-align: center;">
+                                <div class="input-group-append">
+                                    <button id="rwAdd" class="btn btn-outline-secondary" type="button">＞</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="input-group mb-1">
+                                <div class="d-flex align-items-center" style="border-radius: 5px 0px 0px 5px; border-top: 1px dotted #cccccc; border-left: 1px dotted #cccccc; border-bottom: 1px dotted #cccccc; padding: 5px 20px;">
+                                    零件
+                                </div>
+                                <div class="input-group-prepend">
+                                    <button id="cwSub" class="btn btn-outline-secondary" type="button">＜</button>
+                                </div>
+                                <input id="componentsWeight" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1" value="1" style="text-align: center;">
+                                <div class="input-group-append">
+                                    <button id="cwAdd" class="btn btn-outline-secondary" type="button">＞</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin: 5px 0px;">
+            <div class="row">
+                <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center" style="border-right: 1px dashed #dddddd;">
+                    <h6 style="color: #3399ff;">時<span class="d-none d-md-inline">&nbsp;</span>間<span class="d-none d-md-inline">&nbsp;</span>長<span class="d-none d-md-inline">&nbsp;</span>度</h6>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <div class="row">
+                        <div class="col-4 col-md-2 d-flex justify-content-center align-items-center">
+                            <input id="minutesMt" type="text" class="form-control" style="text-align: center;" value="1">
+                        </div>
+                        <div class="col-4 col-md-2 d-flex justify-content-center align-items-center p-0">
+                            ≦&nbsp;時間(分)&nbsp;≦
+                        </div>
+                        <div class="col-4 col-md-2 d-flex justify-content-center align-items-center">
+                            <input id="minutesLt" type="text" class="form-control" style="text-align: center;" value="9999">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin: 5px 0px;">
+            <div class="row" id="levelList">
+                <div class="col-12 col-sm-3 d-flex justify-content-center align-items-center" style="border-right: 1px dashed #dddddd;">
+                    <h6 style="color: #3399ff;">必<span class="d-none d-md-inline">&nbsp;</span>要<span class="d-none d-md-inline">&nbsp;</span>關<span class="d-none d-md-inline">&nbsp;</span>卡</h6>
+                </div>
+                <div class="col-12 col-sm-9">
+                    <div class="row">
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l0-1" data-level="0 - 1" checked="">
+                                <label class="custom-control-label p-0" for="l0-1">0-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l0-2" data-level="0 - 2" checked="">
+                                <label class="custom-control-label" for="l0-2">0-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l0-3" data-level="0 - 3" checked="">
+                                <label class="custom-control-label" for="l0-3">0-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l0-4" data-level="0 - 4" checked="">
+                                <label class="custom-control-label" for="l0-4">0-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l1-1" data-level="1 - 1" checked="">
+                                <label class="custom-control-label" for="l1-1">1-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l1-2" data-level="1 - 2" checked="">
+                                <label class="custom-control-label" for="l1-2">1-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l1-3" data-level="1 - 3" checked="">
+                                <label class="custom-control-label" for="l1-3">1-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l1-4" data-level="1 - 4" checked="">
+                                <label class="custom-control-label" for="l1-4">1-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l2-1" data-level="2 - 1" checked="">
+                                <label class="custom-control-label" for="l2-1">2-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l2-2" data-level="2 - 2" checked="">
+                                <label class="custom-control-label" for="l2-2">2-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l2-3" data-level="2 - 3" checked="">
+                                <label class="custom-control-label" for="l2-3">2-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l2-4" data-level="2 - 4" checked="">
+                                <label class="custom-control-label" for="l2-4">2-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l3-1" data-level="3 - 1" checked="">
+                                <label class="custom-control-label" for="l3-1">3-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l3-2" data-level="3 - 2" checked="">
+                                <label class="custom-control-label" for="l3-2">3-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l3-3" data-level="3 - 3" checked="">
+                                <label class="custom-control-label" for="l3-3">3-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l3-4" data-level="3 - 4" checked="">
+                                <label class="custom-control-label" for="l3-4">3-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l4-1" data-level="4 - 1" checked="">
+                                <label class="custom-control-label" for="l4-1">4-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l4-2" data-level="4 - 2" checked="">
+                                <label class="custom-control-label" for="l4-2">4-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l4-3" data-level="4 - 3" checked="">
+                                <label class="custom-control-label" for="l4-3">4-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l4-4" data-level="4 - 4" checked="">
+                                <label class="custom-control-label" for="l4-4">4-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l5-1" data-level="5 - 1" checked="">
+                                <label class="custom-control-label" for="l5-1">5-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l5-2" data-level="5 - 2" checked="">
+                                <label class="custom-control-label" for="l5-2">5-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l5-3" data-level="5 - 3" checked="">
+                                <label class="custom-control-label" for="l5-3">5-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l5-4" data-level="5 - 4" checked="">
+                                <label class="custom-control-label" for="l5-4">5-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l6-1" data-level="6 - 1" checked="">
+                                <label class="custom-control-label" for="l6-1">6-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l6-2" data-level="6 - 2" checked="">
+                                <label class="custom-control-label" for="l6-2">6-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l6-3" data-level="6 - 3" checked="">
+                                <label class="custom-control-label" for="l6-3">6-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l6-4" data-level="6 - 4" checked="">
+                                <label class="custom-control-label" for="l6-4">6-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l7-1" data-level="7 - 1" checked="">
+                                <label class="custom-control-label" for="l7-1">7-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l7-2" data-level="7 - 2" checked="">
+                                <label class="custom-control-label" for="l7-2">7-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l7-3" data-level="7 - 3" checked="">
+                                <label class="custom-control-label" for="l7-3">7-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l7-4" data-level="7 - 4" checked="">
+                                <label class="custom-control-label" for="l7-4">7-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l8-1" data-level="8 - 1" checked="">
+                                <label class="custom-control-label" for="l8-1">8-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l8-2" data-level="8 - 2" checked="">
+                                <label class="custom-control-label" for="l8-2">8-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l8-3" data-level="8 - 3" checked="">
+                                <label class="custom-control-label" for="l8-3">8-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l8-4" data-level="8 - 4" checked="">
+                                <label class="custom-control-label" for="l8-4">8-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l9-1" data-level="9 - 1" checked="">
+                                <label class="custom-control-label" for="l9-1">9-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l9-2" data-level="9 - 2" checked="">
+                                <label class="custom-control-label" for="l9-2">9-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l9-3" data-level="9 - 3" checked="">
+                                <label class="custom-control-label" for="l9-3">9-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l9-4" data-level="9 - 4" checked="">
+                                <label class="custom-control-label" for="l9-4">9-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l10-1" data-level="10 - 1" checked="">
+                                <label class="custom-control-label" for="l10-1">10-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l10-2" data-level="10 - 2" checked="">
+                                <label class="custom-control-label" for="l10-2">10-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l10-3" data-level="10 - 3" checked="">
+                                <label class="custom-control-label" for="l10-3">10-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l10-4" data-level="10 - 4" checked="">
+                                <label class="custom-control-label" for="l10-4">10-4</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l11-1" data-level="11 - 1" checked="">
+                                <label class="custom-control-label" for="l11-1">11-1</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l11-2" data-level="11 - 2" checked="">
+                                <label class="custom-control-label" for="l11-2">11-2</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l11-3" data-level="11 - 3" checked="">
+                                <label class="custom-control-label" for="l11-3">11-3</label>
+                            </div>
+                        </div>
+                        <div class="col-3 col-sm-2 col-md-auto d-flex align-items-center">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="l11-4" data-level="11 - 4" checked="">
+                                <label class="custom-control-label" for="l11-4">11-4</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin: 5px 0px;">
+            <div class="row">
+                <div class="col-3 d-flex justify-content-center align-items-center" style="border-right: 1px dashed #dddddd;">
+                    <h6 style="color: #3399ff;">顯<span class="d-none d-md-inline">&nbsp;</span>示<span class="d-none d-md-inline">&nbsp;</span>筆<span class="d-none d-md-inline">&nbsp;</span>數</h6>
+                </div>
+                <div class="col-9 col-md-4 d-flex justify-content-center align-items-center">
+                    <input id="rank" type="text" class="form-control" style="text-align: center;" value="10">
+                </div>
+            </div>
+            <hr style="margin: 5px 0px;">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <button id="query" type="button" class="btn btn-info">OK</button>
+                </div>
+            </div>
+        </div>
+        <div id="dataDiv" class="container-fluid" style="margin: 0px auto; display: none; padding: 0px; ">
+            <button id="reQuery" type="button" class="btn btn-outline-dark btn-sm d-flex align-items-center" style="position: fixed; right: 15px; bottom: 15px;"><i class="material-icons">refresh</i></button>
+            <div id="dataTable" style="margin: 0px; padding: 0px;"></div>
+        </div>
+</body>
+</html>

@@ -49,7 +49,17 @@ function LogisticsData() {
         { "level": "11 - 1", "minutes": 240, "manpower": 350, "bullet": 1050, "rations": 0, "components": 0, "human": true, "equipment": true, "manufacture": false, "repair": false, "purchase": false },
         { "level": "11 - 2", "minutes": 240, "manpower": 360, "bullet": 540, "rations": 540, "components": 0, "human": true, "equipment": false, "manufacture": false, "repair": false, "purchase": false },
         { "level": "11 - 3", "minutes": 480, "manpower": 0, "bullet": 750, "rations": 1500, "components": 250, "human": false, "equipment": false, "manufacture": false, "repair": true, "purchase": false },
-        { "level": "11 - 4", "minutes": 600, "manpower": 0, "bullet": 1650, "rations": 0, "components": 900, "human": false, "equipment": false, "manufacture": true, "repair": false, "purchase": false }
+        { "level": "11 - 4", "minutes": 600, "manpower": 0, "bullet": 1650, "rations": 0, "components": 0, "human": false, "equipment": false, "manufacture": true, "repair": false, "purchase": false },
+
+        { "level": "12 - 1", "minutes": 60, "manpower": 0, "bullet": 220, "rations": 220, "components": 120, "human": false, "equipment": true, "manufacture": false, "repair": false, "purchase": false },
+        { "level": "12 - 2", "minutes": 90, "manpower": 360, "bullet": 0, "rations": 0, "components": 0, "human": false, "equipment": false, "manufacture": false, "repair": false, "purchase": false },
+        { "level": "12 - 3", "minutes": 540, "manpower": 800, "bullet": 1200, "rations": 1200, "components": 0, "human": false, "equipment": false, "manufacture": true, "repair": false, "purchase": false },
+        { "level": "12 - 4", "minutes": 720, "manpower": 1800, "bullet": 0, "rations": 1800, "components": 900, "human": true, "equipment": false, "manufacture": false, "repair": false, "purchase": false },
+
+        { "level": "13 - 1", "minutes": 180, "manpower": 0, "bullet": 0, "rations": 1200, "components": 0, "human": false, "equipment": false, "manufacture": true, "repair": false, "purchase": false },
+        { "level": "13 - 2", "minutes": 360, "manpower": 800, "bullet": 800, "rations": 800, "components": 300, "human": false, "equipment": false, "manufacture": false, "repair": false, "purchase": false },
+        { "level": "13 - 3", "minutes": 1440, "manpower": 0, "bullet": 4000, "rations": 0, "components": 1200, "human": false, "equipment": false, "manufacture": false, "repair": false, "purchase": false },
+        { "level": "13 - 4", "minutes": 360, "manpower": 0, "bullet": 0, "rations": 0, "components": 1000, "human": true, "equipment": false, "manufacture": false, "repair": false, "purchase": false },
     ];
 
     return dataObj;

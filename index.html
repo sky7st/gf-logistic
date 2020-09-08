@@ -7,9 +7,12 @@
 		<title>少女前線 非官方資料站</title>
 		
 		<link rel="stylesheet" href="./assets/Bootstrap-Yeti.css">
-		<script src="./assets/javascript/bootstrap/jquery.min.js"></script>
-		<script src="./assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
-
+		{% comment %} <script src="./assets/javascript/bootstrap/jquery.min.js"></script>
+		<script src="./assets/javascript/bootstrap/bootstrap.bundle.min.js"></script> {% endcomment %}
+		<link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+		{%- feed_meta -%}
+		<script src="{{ "/assets/javascript/bootstrap/jquery.min.js" | relative_url }}"></script>
+		<script src="{{ "/assets/javascript/bootstrap/bootstrap.bundle.min.js" | relative_url }}"></script>
 		<style>
 			.nav-item {
 				cursor: pointer;
@@ -21,6 +24,7 @@
 				$("#navbarHeader").empty();
 				$("#funcPage").empty();
 				$.get(funcName, function (data, status){
+					console.log(data)
 					if(status == "success"){
 						$("#navbarHeader").append(funcHeader);
 						$("#funcPage").append(data);
